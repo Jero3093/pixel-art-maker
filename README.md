@@ -1,8 +1,10 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Pixel Art Maker
 
-Currently, two official plugins are available:
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+>This proyect will be a platform where everbody can draw their own ideas. When the pixel art is finished you can share it in the different social apps.
+
+</div>
