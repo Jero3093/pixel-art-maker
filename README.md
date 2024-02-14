@@ -8,3 +8,9 @@
 >This proyect will be a platform where everbody can draw their own ideas. When the pixel art is finished you can share it in the different social apps.
 
 </div>
+
+## Tech Stack
+
+- [React](https://www.react.dev)
+- [Vite]
+- [TailwindCSS]

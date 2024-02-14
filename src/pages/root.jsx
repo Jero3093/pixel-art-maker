@@ -6,7 +6,7 @@ import {
   IoDownload,
 } from "react-icons/io5";
 
-function App() {
+export default function Root() {
   const Features = [
     {
       id: 1,
@@ -96,5 +96,3 @@ function App() {
     </main>
   );
 }
-
-export default App;
