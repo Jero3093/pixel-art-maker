@@ -11,8 +11,8 @@
   scrollbar-color: #303030a0 transparent;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: light #fff dark #000;
+  background-color: dark #242424 light #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
