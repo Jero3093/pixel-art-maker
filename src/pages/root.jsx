@@ -5,6 +5,7 @@ import {
   IoHappy,
   IoDownload,
 } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export default function Root() {
   const Features = [
@@ -66,12 +67,13 @@ export default function Root() {
             <span className="text-emerald-400">special</span> for you
           </h2>
 
-          <button
+          <Link
+            to={"/login"}
             className="p-2 rounded-full w-72 flex items-center gap-3 border-2 border-emerald-400 self-center justify-center text-xl font-medium hover:scale-105 hover:bg-emerald-400 transition-all lg:self-start lg:mt-4"
             about="Button to redirect to login"
           >
             Join Now <IoArrowForward className="w-6 h-6" />
-          </button>
+          </Link>
         </section>
 
         <section className="grid grid-cols-2 place-items-center gap-5 mt-12 lg:mt-0">
