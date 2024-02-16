@@ -13,9 +13,10 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_13"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_13" result="shape"/>
 </filter>
-<linearGradient id="paint0_linear_28_13" x1="-33.8" y1="14.6" x2="49" y2="92" gradientUnits="userSpaceOnUse">
-<stop stop-color="#00FFD1"/>
-<stop offset="1" stop-color="#4D9A70"/>
+<linearGradient id="paint0_linear_28_13" x1="14" y1="86" x2="70" y2="26" gradientUnits="userSpaceOnUse">
+<stop offset="0.201565" stop-color="#00FFD1"/>
+<stop offset="0.470058" stop-color="#96FFF9"/>
+<stop offset="1" stop-color="#67F0C7"/>
 </linearGradient>
 </defs>
 </svg>
