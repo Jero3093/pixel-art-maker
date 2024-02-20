@@ -28,6 +28,7 @@ export function PasswordInput({ type, onChange, onClick, ShowPassword }) {
         placeholder={"6 character long min."}
         onChange={onChange}
         className="w-full h-12 rounded-l-md bg-transparent border-l-2 border-t-2 border-b-2 border-zinc-600 p-2 text-xl outline-none"
+        minLength={6}
       />
       <div className="h-12 rounded-r-md outline-none bg-transparent border-t-2 border-r-2 border-b-2 border-zinc-600 p-2 text-xl grid place-items-center">
         <button onClick={onClick}>
