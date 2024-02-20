@@ -4,13 +4,23 @@
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
 
-
->This proyect will be a platform where everbody can draw their own ideas. When the pixel art is finished you can share it in the different social apps.
+> Unleash your creativity on our pixel-perfect canvas! The Pixel Art Maker is a dynamic platform where everybody can transform their imaginative ideas into captivating pixel art. Share your masterpieces effortlessly across various social apps and let your creativity shine.
 
 </div>
 
 ## Tech Stack
 
 - [React](https://www.react.dev)
-- [Vite]
-- [TailwindCSS]
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+
+## Features
+
+- **Intuitive Drawing**: Effortlessly draw and design with our user-friendly interface.
+- **Social Sharing**: Showcase your pixel art by easily sharing it on different social media platforms.
+
+## Get Started
+
+Explore the endless possibilities of pixel art creation. [Start Drawing Now](#) and bring your ideas to life!
+
+Feel free to contribute or report issues on [GitHub](#).
