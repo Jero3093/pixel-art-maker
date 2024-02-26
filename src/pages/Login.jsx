@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { IoChevronBackOutline, IoEllipse } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import Copyright from "../components/Copyright";
+import { Link, redirect, useNavigate } from "react-router-dom";
+import { Toaster, toast } from "sonner";
 import { Input, PasswordInput } from "../components/Input";
+import { checkAuthFields } from "../utils/checkAuthFields";
+import Copyright from "../components/Copyright";
 
 export default function Login() {
   const [ShowPassword, setShowPassword] = useState(false);
@@ -10,16 +12,64 @@ export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const emptyFields = checkAuthFields({ Email, Password });
+
+      if (emptyFields) {
+        toast.error("All the fields must be completed, please try again");
+        return;
+      }
+
+      const res = await fetch(import.meta.env.VITE_SIGNIN_ENDPOINT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: Email,
+          password: Password,
+        }),
+      });
+
+      if (res.ok) {
+        const { _id } = await res.json();
+
+        localStorage.setItem("session", JSON.stringify({ _id: _id }));
+        
+        navigate("/dashboard");
+      } else {
+        if (res.status === 400) {
+          toast.error(
+            "Some fields contian special characters, delete them and try again"
+          );
+        } else if (res.status === 404) {
+          toast.error("This user doesen't exist");
+        } else if (res.status === 401) {
+          toast.error("The password is wrong, try again with another one");
+        }
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <main className="min-h-screen flex flex-col p-2 justify-between">
+      <Toaster richColors position="top-center" />
       <header className="flex items-center p-2">
         <Link to={"/"} className="flex flex-row items-center">
           <IoChevronBackOutline className="text-zinc-600 w-7 h-7" />
           <span className="text-zinc-600 text-xl">Go Back</span>
         </Link>
       </header>
-
-      <form className="max-w-96 h-auto border-2 border-zinc-300 dark:border-zinc-700 rounded-md p-4 flex flex-col self-center text-pretty">
+      <form
+        className="max-w-96 h-auto border-2 border-zinc-300 dark:border-zinc-700 rounded-md p-4 flex flex-col self-center text-pretty"
+        onSubmit={(e) => handleSignIn(e)}
+      >
         <h2 className="text-3xl font-medium mb-2">Login</h2>
         <p className="text-zinc-600 mb-4">
           Enter your username and password to login to your account.
