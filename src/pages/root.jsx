@@ -6,8 +6,16 @@ import {
   IoDownload,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import useSession from "../hooks/useSession";
+import useRedirect from "../hooks/useRedirect";
 
 export default function Root() {
+  const session = useSession();
+
+  if (session) {
+    useRedirect({ session, route: "/dashboard" });
+  }
+
   const Features = [
     {
       id: 1,
@@ -49,12 +57,13 @@ export default function Root() {
           </h1>
         </div>
 
-        <button
+        <Link
+          to={"/dashboard"}
           className="p-2 px-5 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md text-lg text-black font-semibold hover:scale-105 hover:shadow-md hover:shadow-emerald-300 transition-all"
           about="Button to redirect to dashboard page"
         >
           Dashboard
-        </button>
+        </Link>
       </header>
 
       <article className="flex flex-col items-center gap-5 mt-10 justify-between lg:flex-row lg:px-10">

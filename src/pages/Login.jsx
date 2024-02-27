@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { IoChevronBackOutline, IoEllipse } from "react-icons/io5";
-import { Link, redirect, useNavigate } from "react-router-dom";
-import { Toaster, toast } from "sonner";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { Input, PasswordInput } from "../components/Input";
 import { checkAuthFields } from "../utils/checkAuthFields";
+import useRedirect from "../hooks/useRedirect";
+import useSession from "../hooks/useSession";
+import SonnerToaster from "../components/SonnerToaster";
 import Copyright from "../components/Copyright";
 
 export default function Login() {
@@ -13,6 +16,12 @@ export default function Login() {
   const [Password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const session = useSession();
+
+  if (session) {
+    useRedirect({ session, route: "/dashboard" });
+  }
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -39,7 +48,7 @@ export default function Login() {
         const { _id } = await res.json();
 
         localStorage.setItem("session", JSON.stringify({ _id: _id }));
-        
+
         navigate("/dashboard");
       } else {
         if (res.status === 400) {
@@ -59,7 +68,7 @@ export default function Login() {
 
   return (
     <main className="min-h-screen flex flex-col p-2 justify-between">
-      <Toaster richColors position="top-center" />
+      <SonnerToaster />
       <header className="flex items-center p-2">
         <Link to={"/"} className="flex flex-row items-center">
           <IoChevronBackOutline className="text-zinc-600 w-7 h-7" />

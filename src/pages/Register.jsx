@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { IoChevronBackOutline, IoEllipse } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { checkAuthFields } from "../utils/checkAuthFields";
 import { Input, PasswordInput } from "../components/Input";
+import SonnerToaster from "../components/SonnerToaster";
 import Copyright from "../components/Copyright";
+import useRedirect from "../hooks/useRedirect";
+import useSession from "../hooks/useSession";
 
 export default function Register() {
   const [ShowPassword, setShowPassword] = useState(false);
@@ -14,6 +17,12 @@ export default function Register() {
   const [Password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const session = useSession();
+
+  if (session) {
+    useRedirect({ session, route: "/dashboard" });
+  }
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -61,7 +70,7 @@ export default function Register() {
 
   return (
     <main className="min-h-screen flex flex-col p-2 justify-between">
-      <Toaster richColors position="top-center" />
+      <SonnerToaster />
       <header className="flex items-center p-2">
         <Link to={"/"} className="flex flex-row items-center">
           <IoChevronBackOutline className="text-zinc-600 w-7 h-7" />
