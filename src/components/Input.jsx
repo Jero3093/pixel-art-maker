@@ -42,3 +42,19 @@ export function PasswordInput({ type, onChange, onClick, ShowPassword }) {
     </div>
   );
 }
+
+export function SearchInput({ size, onChange }) {
+  return (
+    <input
+      type="search"
+      name="search"
+      onChange={onChange}
+      className={
+        size === "sm"
+          ? "md:hidden w-full h-11 rounded-full p-4 border-2 border-black dark:border-white bg-transparent outline-none"
+          : "hidden md:block max-w-[900px] w-full mx-20 h-11 rounded-full p-4 border-2 border-black dark:border-white bg-transparent outline-none"
+      }
+      placeholder="Search pixel arts by name..."
+    />
+  );
+}
