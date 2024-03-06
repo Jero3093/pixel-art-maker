@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 function useUser() {
+  const [isLoading, setisLoading] = useState(true);
+
   const [user, setuser] = useState([]);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function useUser() {
     fetchUser();
   }, []);
 
-  return user;
+  return { user, isLoading };
 }
 
 export default useUser;
