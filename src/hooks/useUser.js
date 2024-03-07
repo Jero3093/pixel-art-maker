@@ -33,8 +33,6 @@ function useUser() {
         }
       } catch (error) {
         toast.error(error.message || "Something went wrong");
-      } finally {
-        setisLoading(false);
       }
     };
 

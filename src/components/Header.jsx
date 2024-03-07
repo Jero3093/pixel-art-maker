@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { IoSearch, IoPersonCircle } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { IoSearch, IoPersonCircle } from "react-icons/io5";
 import { SearchInput } from "./Input";
 
-function Header({ username, search }) {
+function Header({ username, search, searchOnChange }) {
   const [ShowInput, setShowInput] = useState(false);
+
   return (
     <>
       <header className="flex flex-row items-center p-2 justify-between">
@@ -17,12 +18,7 @@ function Header({ username, search }) {
             />
           </picture>
         </Link>
-        {search && (
-          <SearchInput
-            size={"md"}
-            onChange={(e) => console.log(e.target.value)}
-          />
-        )}
+        {search && <SearchInput size={"md"} onChange={searchOnChange} />}
         <div className="flex flex-row items-center gap-5">
           {search && (
             <button
@@ -44,12 +40,7 @@ function Header({ username, search }) {
         </div>
       </header>
       <div className="p-2">
-        {ShowInput && (
-          <SearchInput
-            size={"sm"}
-            onChange={(e) => console.log(e.target.value)}
-          />
-        )}
+        {ShowInput && <SearchInput size={"sm"} onChange={searchOnChange} />}
       </div>
     </>
   );
