@@ -12,7 +12,7 @@ function Header({ username, search, searchOnChange }) {
         <Link to={"/dashboard"} className="w-16 min-w-16 h-16">
           <picture>
             <img
-              src="./logo.svg"
+              src="../logo.svg"
               alt="Ofical Logo of Pixel Art Maker"
               className="drop-shadow-md"
             />

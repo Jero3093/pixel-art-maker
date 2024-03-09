@@ -6,6 +6,7 @@ import Root from "./pages/root.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import NewDraft from "./pages/NewDraft.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
   },
+  {
+    path: "/draft/create",
+    element: <NewDraft />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

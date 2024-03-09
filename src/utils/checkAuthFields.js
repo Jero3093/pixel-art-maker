@@ -10,4 +10,15 @@ function checkAuthFields({ Username, Email, Password }) {
   }
 }
 
-export { checkAuthFields };
+function checkNewDraftFields({ Name, Pixels }) {
+  const nameField = Name === "" ? true : false;
+  const pixelsField = Pixels === "" ? true : false;
+
+  if (nameField || pixelsField) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export { checkAuthFields, checkNewDraftFields };

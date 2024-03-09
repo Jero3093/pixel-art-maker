@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 function useUser() {
-  const [isLoading, setisLoading] = useState(true);
-
   const [user, setuser] = useState([]);
 
   useEffect(() => {
@@ -14,15 +12,9 @@ function useUser() {
         if (session) {
           const parsedSession = JSON.parse(session);
 
-          const res = await fetch(import.meta.env.VITE_GETUSER_ENDPOINT_URL, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            method: "POST",
-            body: JSON.stringify({
-              _id: parsedSession._id,
-            }),
-          });
+          const res = await fetch(
+            `${import.meta.env.VITE_GETUSER_ENDPOINT_URL}${parsedSession._id}`
+          );
 
           if (res.ok) {
             const userData = await res.json();
@@ -39,7 +31,7 @@ function useUser() {
     fetchUser();
   }, []);
 
-  return { user, isLoading };
+  return user;
 }
 
 export default useUser;
