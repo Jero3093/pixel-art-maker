@@ -21,11 +21,6 @@ export default function NewDraft() {
 
   const user = useUser();
 
-  if (user.length < 0) {
-    useRedirect({ session, route: "/" });
-    return;
-  }
-
   const navigate = useNavigate();
 
   const [DraftName, setDraftName] = useState("");
@@ -41,6 +36,9 @@ export default function NewDraft() {
 
       if (fields) {
         toast.error("Please complete all the fields to continue");
+        return;
+      } else if (user.length === 0) {
+        toast.error("User not found, please log with another user")
         return;
       }
 

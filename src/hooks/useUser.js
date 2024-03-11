@@ -20,7 +20,7 @@ function useUser() {
             const userData = await res.json();
             setuser(userData);
           } else {
-            toast.error("Something went wrong");
+            toast.error("This user was not found");
           }
         }
       } catch (error) {

@@ -13,7 +13,7 @@ export default function Root() {
   const session = useSession();
 
   if (session) {
-    useRedirect({ session, route: "/dashboard" });
+    useRedirect({ route: "/dashboard" });
   }
 
   const Features = [

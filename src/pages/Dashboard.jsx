@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoAddSharp } from "react-icons/io5";
+import SonnerToaster from "../components/SonnerToaster";
 import useSession from "../hooks/useSession";
 import useUser from "../hooks/useUser";
 import useRedirect from "../hooks/useRedirect";
@@ -14,16 +15,11 @@ export default function Dashboard() {
   const session = useSession();
 
   if (session === null) {
-    useRedirect({ session, route: "/" });
+    useRedirect({ route: "/" });
     return;
   }
 
   const user = useUser();
-
-  if (user.length < 0) {
-    useRedirect({ session, route: "/" });
-    return;
-  }
 
   const drafts = useDrafts({ userId: session._id });
 
@@ -64,6 +60,7 @@ export default function Dashboard() {
 
   return (
     <main className="min-h-screen p-2 flex flex-col">
+      <SonnerToaster />
       <Header
         username={user && user?.username}
         search={true}

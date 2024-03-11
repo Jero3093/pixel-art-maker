@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function useRedirect({ session, route }) {
+function useRedirect({ route }) {
   const navigate = useNavigate();
 
   useEffect(() => {
     navigate(route);
-  }, [session]);
+  }, [navigate, route]);
 }
 
 export default useRedirect;
