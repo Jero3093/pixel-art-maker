@@ -4,9 +4,13 @@ import {
   IoPencilSharp,
   IoTrashBin,
 } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import handleDeleteDraft from "../utils/handleDeleteDraft";
 
-function DraftCard({ item }) {
+function DraftCard({ item, userId }) {
   const [MenuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const OptionsMenu = () => {
     return (
@@ -15,7 +19,16 @@ function DraftCard({ item }) {
           <IoPencilSharp />
           Edit
         </button>
-        <button className="flex flex-row items-center gap-3 hover:scale-105 transition-all">
+        <button
+          className="flex flex-row items-center gap-3 hover:scale-105 transition-all"
+          onClick={() =>
+            handleDeleteDraft({
+              draftId: item._id,
+              userId: userId,
+              navigate: navigate,
+            })
+          }
+        >
           <IoTrashBin />
           Delete
         </button>

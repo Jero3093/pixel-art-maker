@@ -49,11 +49,11 @@ export default function Dashboard() {
   const RenderDrafts = () => {
     if (drafts.length > 0 && SearchedDrafts.length <= 0) {
       return drafts.map((item) => {
-        return <DraftCard item={item} key={item.id} />;
+        return <DraftCard item={item} key={item.id} userId={session?._id} />;
       });
     } else if (SearchedDrafts.length > 0) {
       return SearchedDrafts.map((item) => {
-        return <DraftCard item={item} key={item.id} />;
+        return <DraftCard item={item} key={item.id} userId={session?._id} />;
       });
     }
   };
