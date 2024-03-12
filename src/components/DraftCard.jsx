@@ -15,7 +15,10 @@ function DraftCard({ item, userId }) {
   const OptionsMenu = () => {
     return (
       <menu className="bg-emerald-400/65 border-2 border-emerald-400 max-w-32 w-32 rounded-md h-auto absolute right-10 top-10 z-10 p-2 flex flex-col gap-7 text-black text-xl font-medium">
-        <button className="flex flex-row items-center gap-3 hover:scale-105 transition-all">
+        <button
+          className="flex flex-row items-center gap-3 hover:scale-105 transition-all"
+          onClick={() => navigate(`/draft/name/?_id=${item._id}`)}
+        >
           <IoPencilSharp />
           Edit
         </button>

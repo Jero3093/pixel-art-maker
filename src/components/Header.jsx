@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch, IoPersonCircle } from "react-icons/io5";
 import { SearchInput } from "./Input";
-import Logo from "../../public/logo.svg"
 
 function Header({ username, search, searchOnChange }) {
   const [ShowInput, setShowInput] = useState(false);
@@ -13,7 +12,7 @@ function Header({ username, search, searchOnChange }) {
         <Link to={"/dashboard"} className="w-16 min-w-16 h-16">
           <picture>
             <img
-              src={Logo}
+              src="/logo.svg"
               alt="Ofical Logo of Pixel Art Maker"
               className="drop-shadow-md"
             />
