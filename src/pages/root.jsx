@@ -58,11 +58,11 @@ export default function Root() {
         </div>
 
         <Link
-          to={"/dashboard"}
+          to={"/login"}
           className="p-2 px-5 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md text-lg text-black font-semibold hover:scale-105 hover:shadow-md hover:shadow-emerald-300 transition-all"
-          about="Button to redirect to dashboard page"
+          about="Button to redirect to login page"
         >
-          Dashboard
+          Login
         </Link>
       </header>
 
@@ -77,7 +77,7 @@ export default function Root() {
           </h2>
 
           <Link
-            to={"/login"}
+            to={"/register"}
             className="p-2 rounded-full w-72 flex items-center gap-3 border-2 border-emerald-400 self-center justify-center text-xl font-medium hover:scale-105 hover:bg-emerald-400 transition-all lg:self-start lg:mt-4"
             about="Button to redirect to login"
           >
