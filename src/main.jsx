@@ -8,6 +8,7 @@ import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import NewDraft from "./pages/NewDraft.jsx";
 import ChangeName from "./pages/ChangeName.jsx";
+import Draft from "./pages/Draft.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const routes = createBrowserRouter([
   {
     path: "/draft/name",
     element: <ChangeName />,
+  },
+  {
+    path: "/draft",
+    element: <Draft />,
   },
 ]);
 

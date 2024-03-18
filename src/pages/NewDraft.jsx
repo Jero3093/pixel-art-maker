@@ -8,7 +8,6 @@ import useUser from "../hooks/useUser";
 import useRedirect from "../hooks/useRedirect";
 import SonnerToaster from "../components/SonnerToaster";
 import Header from "../components/Header";
-import Loader from "../components/Loader";
 import Copyright from "../components/Copyright";
 
 export default function NewDraft() {
@@ -38,7 +37,10 @@ export default function NewDraft() {
         toast.error("Please complete all the fields to continue");
         return;
       } else if (user.length === 0) {
-        toast.error("User not found, please log with another user")
+        toast.error("User not found, please log with another user");
+        return;
+      } else if (parseInt(DraftPixelsLong) < 10) {
+        toast.error("Sorry but the minimum of pixels are 10");
         return;
       }
 
@@ -88,7 +90,7 @@ export default function NewDraft() {
           />
         </label>
         <label className="flex flex-col gap-3">
-          <span className="text-2xl">Pixels Long</span>
+          <span className="text-2xl">Pixels Long (min. 10)</span>
           <p className="text-zinc-600">
             Specify the number of pixel long draft must have
           </p>

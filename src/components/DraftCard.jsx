@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   IoEllipsisVerticalSharp,
   IoPencilSharp,
   IoTrashBin,
 } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
 import handleDeleteDraft from "../utils/handleDeleteDraft";
 
 function DraftCard({ item, userId }) {
@@ -41,9 +41,10 @@ function DraftCard({ item, userId }) {
 
   return (
     <div className="w-full max-w-96 relative">
-      <article
+      <Link
+        to={`/draft/?_id=${item._id}`}
         className="w-full max-w-96 border-zinc-700/25 border-[3px] bg-zinc-700/5 shadow-md p-2 flex flex-row items-center justify-between rounded-md cursor-pointer group hover:bg-gradient-to-l hover:scale-105 transition-all"
-        key={item.id}
+        key={item._id}
       >
         <div className="flex flex-col gap-5">
           <p className="text-2xl font-semibold">{item.name}</p>
@@ -54,7 +55,7 @@ function DraftCard({ item, userId }) {
         <button onClick={() => setMenuOpen(!MenuOpen)}>
           <IoEllipsisVerticalSharp className="hidden w-7 h-7 group-hover:block hover:scale-110 transition-all" />
         </button>
-      </article>
+      </Link>
       {MenuOpen && <OptionsMenu />}
     </div>
   );

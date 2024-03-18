@@ -27,6 +27,7 @@ export default function ChangeName() {
 
   if (!draftId) {
     useRedirect({ route: "/dashboard" });
+    return;
   }
 
   const [NewDraftName, setNewDraftName] = useState("");
