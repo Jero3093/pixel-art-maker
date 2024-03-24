@@ -19,3 +19,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.TextGlowing {
+  filter: drop-shadow(2px 2px 4px rgba(52, 211, 153, 0.547));
+}
+
+.BoxGlowing {
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.448);
+}

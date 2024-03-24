@@ -59,7 +59,7 @@ export default function Root() {
 
         <Link
           to={"/login"}
-          className="p-2 px-5 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md text-lg text-black font-semibold hover:scale-105 hover:shadow-md hover:shadow-emerald-300 transition-all"
+          className="p-2 px-5 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md text-lg text-black font-semibold hover:scale-105 transition-all"
           about="Button to redirect to login page"
         >
           Login
@@ -69,11 +69,14 @@ export default function Root() {
       <article className="flex flex-col items-center gap-5 mt-10 justify-between lg:flex-row lg:px-10">
         <section className="flex flex-col p-2 text-pretty gap-5 max-w-[600px]">
           <h2 className="text-4xl font-semibold leading-snug lg:text-6xl lg:leading-tight">
-            <span className="text-emerald-400">This</span> is a space where you
-            can <span className="text-emerald-400">explore</span> your{" "}
-            <span className="text-emerald-400">imagination</span> and{" "}
-            <span className="text-emerald-400">create</span> something{" "}
-            <span className="text-emerald-400">special</span> for you
+            <span className="text-emerald-400 TextGlowing">This</span> is a
+            space where you can{" "}
+            <span className="text-emerald-400 TextGlowing">explore</span> your{" "}
+            <span className="text-emerald-400 TextGlowing">imagination</span>{" "}
+            and <span className="text-emerald-400 TextGlowing">create</span>{" "}
+            something{" "}
+            <span className="text-emerald-400 TextGlowing">special</span> for
+            you
           </h2>
 
           <Link
@@ -89,7 +92,7 @@ export default function Root() {
           {Features.map((items) => {
             return (
               <div
-                className="p-2 border border-zinc-300 dark:border-zinc-700 shadow-md flex flex-col gap-2 text-pretty rounded-md min-w-48 max-w-48 h-auto dark:shadow-zinc-800 lg:gap-4 lg:max-w-72 lg:p-4"
+                className="BoxGlowing p-2 border border-zinc-300 dark:border-zinc-700 flex flex-col gap-2 text-pretty rounded-md min-w-48 max-w-48 h-auto lg:gap-4 lg:max-w-72 lg:p-4"
                 key={items.id}
               >
                 <div className="flex flex-row items-center gap-2">
