@@ -41,21 +41,19 @@ function DraftCard({ item, userId }) {
 
   return (
     <div className="w-full max-w-96 relative">
-      <Link
-        to={`/draft/?_id=${item._id}`}
-        className="w-full max-w-96 border-zinc-700/25 border-[3px] bg-zinc-700/5 shadow-md p-2 flex flex-row items-center justify-between rounded-md cursor-pointer group hover:bg-gradient-to-l hover:scale-105 transition-all"
-        key={item._id}
-      >
-        <div className="flex flex-col gap-5">
-          <p className="text-2xl font-semibold">{item.name}</p>
-          <span className="text-xl text-zinc-500">
-            Created: {item.created_at}
-          </span>
-        </div>
-        <button onClick={() => setMenuOpen(!MenuOpen)}>
+      <div className="w-full max-w-96 border-zinc-700/25 border-[3px] bg-zinc-700/5 shadow-md p-2 flex flex-row items-center justify-between rounded-md cursor-pointer group hover:bg-gradient-to-l hover:scale-105 transition-all">
+        <Link to={`/draft/?_id=${item._id}`} key={item._id}>
+          <div className="flex flex-col gap-5">
+            <p className="text-2xl font-semibold">{item.name}</p>
+            <span className="text-xl text-zinc-500">
+              Created: {item.created_at}
+            </span>
+          </div>
+        </Link>
+        <button onClick={() => setMenuOpen(!MenuOpen)} className="z-10">
           <IoEllipsisVerticalSharp className="hidden w-7 h-7 group-hover:block hover:scale-110 transition-all" />
         </button>
-      </Link>
+      </div>
       {MenuOpen && <OptionsMenu />}
     </div>
   );
