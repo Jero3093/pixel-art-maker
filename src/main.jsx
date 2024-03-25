@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import NewDraft from "./pages/NewDraft.jsx";
 import ChangeName from "./pages/ChangeName.jsx";
 import Draft from "./pages/Draft.jsx";
+import Subscripton from "./pages/Subscripton.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
   {
     path: "/draft",
     element: <Draft />,
+  },
+  {
+    path: "/subscription",
+    element: <Subscripton />,
   },
 ]);
 
