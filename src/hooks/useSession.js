@@ -1,8 +1,8 @@
 function useSession() {
-  const session = localStorage.getItem("session");
+  const session = document.cookie;
 
   if (session) {
-    const parsedSession = JSON.parse(session);
+    const parsedSession = JSON.parse(session.split("=")[1]);
     return parsedSession;
   } else {
     return null;

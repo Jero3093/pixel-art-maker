@@ -14,7 +14,7 @@ export default function Subscripton() {
     return;
   }
 
-  const user = useUser();
+  const user = useUser({ _id: session?._id });
 
   const SubscriptionsPlans = useSubscriptionPlans();
 

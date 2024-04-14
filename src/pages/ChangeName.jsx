@@ -17,7 +17,7 @@ export default function ChangeName() {
     return;
   }
 
-  const user = useUser();
+  const user = useUser({ _id: session?._id });
 
   const navigate = useNavigate();
 

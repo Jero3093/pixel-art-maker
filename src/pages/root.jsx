@@ -44,7 +44,7 @@ export default function Root() {
   ];
 
   return (
-    <main className="min-h-screen flex flex-col p-2">
+    <main className="min-h-screen flex flex-col p-2 BGSVG">
       <header className="p-2 flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-4">
           <img
@@ -88,18 +88,18 @@ export default function Root() {
           </Link>
         </section>
 
-        <section className="grid grid-cols-2 place-items-center gap-5 mt-12 lg:mt-0">
+        <section className="grid grid-cols-1 place-items-center gap-5 mt-12 md:grid-cols-2 lg:mt-0">
           {Features.map((items) => {
             return (
               <div
-                className="BoxGlowing p-2 border border-zinc-300 dark:border-zinc-700 flex flex-col gap-2 text-pretty rounded-md min-w-48 max-w-48 h-auto lg:gap-4 lg:max-w-72 lg:p-4"
+                className="BoxGlowing border border-zinc-300 dark:border-zinc-700 flex flex-col gap-2 text-pretty rounded-md min-w-48 h-auto lg:gap-4 max-w-72 p-4"
                 key={items.id}
               >
                 <div className="flex flex-row items-center gap-2">
                   {items.icon}
-                  <h3 className="text-xl lg:text-3xl">{items.name}</h3>
+                  <h3 className="text-3xl">{items.name}</h3>
                 </div>
-                <h4 className="text-zinc-500 lg:text-xl">
+                <h4 className="text-zinc-500 text-xl">
                   {items.description}
                 </h4>
               </div>

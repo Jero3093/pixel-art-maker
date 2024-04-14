@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoAddSharp } from "react-icons/io5";
-import SonnerToaster from "../components/SonnerToaster";
 import useSession from "../hooks/useSession";
 import useUser from "../hooks/useUser";
 import useRedirect from "../hooks/useRedirect";
+import SonnerToaster from "../components/SonnerToaster";
 import Header from "../components/Header";
 import DraftCard from "../components/DraftCard";
 import Loader from "../components/Loader";
@@ -19,9 +19,9 @@ export default function Dashboard() {
     return;
   }
 
-  const user = useUser();
+  const user = useUser({ _id: session?._id });
 
-  const drafts = useDrafts({ userId: session._id });
+  const drafts = useDrafts({ userId: session?._id });
 
   const [SearchText, setSearchText] = useState("");
 
@@ -59,7 +59,7 @@ export default function Dashboard() {
   };
 
   return (
-    <main className="min-h-screen p-2 flex flex-col">
+    <main className="min-h-screen p-2 flex flex-col BGSVG">
       <SonnerToaster />
       <Header
         username={user && user?.username}
@@ -71,7 +71,7 @@ export default function Dashboard() {
       />
       <Link
         to={"/draft/create"}
-        className="my-5 w-full max-w-96 flex flex-row justify-center gap-2 bg-gradient-to-r from-emerald-300 to-emerald-500 p-3 rounded-md text-2xl text-black font-semibold self-center hover:scale-105 transition-all"
+        className="my-5 w-full max-w-96 flex flex-row justify-center gap-2 border-[3px] border-emerald-500 p-3 rounded-md text-2xl text-black font-semibold self-center bg-emerald-900/40 dark:text-white hover:scale-105 transition-all"
       >
         <IoAddSharp className="w-8 h-8" />
         New Draft

@@ -1,19 +1,15 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
-function useUser() {
+function useUser({ _id }) {
   const [user, setuser] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const session = localStorage.getItem("session");
-
-        if (session) {
-          const parsedSession = JSON.parse(session);
-
+        if (_id) {
           const res = await fetch(
-            `${import.meta.env.VITE_GETUSER_ENDPOINT_URL}${parsedSession._id}`
+            `${import.meta.env.VITE_GETUSER_ENDPOINT_URL}${_id}`
           );
 
           if (res.ok) {

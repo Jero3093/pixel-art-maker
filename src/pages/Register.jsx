@@ -49,7 +49,7 @@ export default function Register() {
       if (res.ok) {
         const { _id } = await res.json();
 
-        localStorage.setItem("session", JSON.stringify({ _id: _id }));
+        document.cookie = `session=${JSON.stringify({ _id: _id })}`;
 
         navigate("/dashboard");
       } else {
