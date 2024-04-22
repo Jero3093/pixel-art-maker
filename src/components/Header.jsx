@@ -11,7 +11,11 @@ function Header({ username, search, searchOnChange }) {
     <>
       <header className="flex flex-row items-center p-2 justify-between">
         {/* Link to Dashboard */}
-        <Link to={"/dashboard"} className="w-16 min-w-16 h-16">
+        <Link
+          to={"/dashboard"}
+          className="w-16 min-w-16 h-16"
+          title="Dashboard"
+        >
           <picture>
             <img
               src="/logo.svg"
@@ -38,6 +42,7 @@ function Header({ username, search, searchOnChange }) {
           <Link
             to={"/subscription"}
             className={`grid place-items-center rounded-full p-2 hover:scale-105 transition-all rounded-ful`}
+            title="Subscription"
           >
             <TbCoin className="w-8 h-8" />
           </Link>
@@ -45,6 +50,7 @@ function Header({ username, search, searchOnChange }) {
           <Link
             to={"/user/profile"}
             className="flex flex-row items-center gap-2 border-2 border-black dark:border-white p-2 rounded-full hover:scale-105 transition-all max-w-52"
+            title="Profile"
           >
             <IoPersonCircle className="w-8 h-8" />
             <span>{username}</span>
