@@ -38,6 +38,12 @@ export default function Draft() {
 
   const [SavedColors, setSavedColors] = useState([{ color: "#404040" }]);
 
+  let gridSize = Math.ceil(Math.sqrt(grid?.length));
+
+  if (grid.length > 0 && grid?.length.toString().split("")[1].includes("0")) {
+    gridSize += 1;
+  }
+
   const handlePaintPixel = (index) => {
     const newGrid = [...grid];
     if (newGrid[index].length > 0) {
@@ -87,9 +93,8 @@ export default function Draft() {
       <div
         className="grid z-20"
         style={{
-          gridTemplateColumns: `repeat(${
-            grid?.length > 0 && grid?.length / 4
-          }, 1fr)`,
+          gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+          gridTemplateRows: `repeat(${gridSize}, 1fr)`,
         }}
       >
         {grid.length > 0 &&
