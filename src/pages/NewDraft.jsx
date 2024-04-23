@@ -18,7 +18,7 @@ export default function NewDraft() {
     return;
   }
 
-  const user = useUser({_id: session._id});
+  const user = useUser({ _id: session._id });
 
   const navigate = useNavigate();
 
@@ -28,19 +28,19 @@ export default function NewDraft() {
   const handleCreateDraft = async (e) => {
     e.preventDefault();
     try {
-      const fields = checkNewDraftFields({
+      const emptyFields = checkNewDraftFields({
         Name: DraftName,
         Pixels: DraftPixelsLong,
       });
 
-      if (fields) {
+      if (emptyFields) {
         toast.error("Please complete all the fields to continue");
         return;
       } else if (user.length === 0) {
         toast.error("User not found, please log with another user");
         return;
-      } else if (parseInt(DraftPixelsLong) < 10) {
-        toast.error("Sorry but the minimum of pixels are 10");
+      } else if (parseInt(DraftPixelsLong) < 20) {
+        toast.error("Sorry but the minimum of pixels are 20");
         return;
       }
 
@@ -90,7 +90,7 @@ export default function NewDraft() {
           />
         </label>
         <label className="flex flex-col gap-3">
-          <span className="text-2xl">Pixels Long (min. 10)</span>
+          <span className="text-2xl">Pixels Long (min. 20)</span>
           <p className="text-zinc-600">
             Specify the number of pixel long draft must have
           </p>
