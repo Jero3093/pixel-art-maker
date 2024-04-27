@@ -27,7 +27,13 @@ export default function Dashboard() {
 
   const [SearchedDrafts, setSearchedDrafts] = useState([]);
 
-  const [IsLoading, setIsLoading] = useState(false);
+  const [IsLoading, setIsLoading] = useState(true);
+
+  if (drafts.length === 0) {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }
 
   const searchDrafts = (e) => {
     if (SearchText !== "") {
@@ -71,20 +77,18 @@ export default function Dashboard() {
       />
       <Link
         to={"/draft/create"}
-        className="my-5 w-full max-w-96 flex flex-row justify-center gap-2 border-[3px] border-emerald-500 p-3 rounded-md text-2xl text-black font-semibold self-center bg-emerald-900/40 dark:text-white hover:scale-105 transition-all"
+        className="my-5 w-full max-w-96 flex flex-row justify-center gap-2 border-[3px] border-emerald-500 p-3 rounded-md text-2xl text-black font-semibold self-center bg-emerald-600/20 dark:bg-emerald-900/40 dark:text-white hover:scale-105 transition-all"
       >
         <IoAddSharp className="w-8 h-8" />
         New Draft
       </Link>
-      <section className="self-center w-full flex flex-col items-center max-w-3xl">
-        <h2 className="text-3xl mt-5">Saved Drafts</h2>
-        {drafts.length <= 0 && (
-          <p className="text-zinc-500 my-10">No drafts saved yet</p>
+      <section className="self-center w-full flex flex-col items-center max-w-6xl">
+        {IsLoading && <Loader />}
+        {!IsLoading && drafts.length <= 0 && (
+          <p className="text-zinc-500 my-10 text-xl">No draft's created</p>
         )}
-        {IsLoading ? (
-          <Loader />
-        ) : (
-          <div className="grid grid-cols-1 self-center gap-5 my-10 w-full place-items-center md:grid-cols-2">
+        {!IsLoading && (
+          <div className="grid grid-cols-1 self-center gap-5 my-10 w-full place-items-center md:grid-cols-2 lg:grid-cols-3">
             <RenderDrafts />
           </div>
         )}
