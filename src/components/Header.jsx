@@ -18,7 +18,7 @@ function Header({ username, search, searchOnChange }) {
         >
           <picture>
             <img
-              src="/logo.svg"
+              src="/logoV2.svg"
               alt="Ofical Logo of Pixel Art Maker"
               className="drop-shadow-md"
             />

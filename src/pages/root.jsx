@@ -48,7 +48,7 @@ export default function Root() {
       <header className="p-2 flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-4">
           <img
-            src="./logo.svg"
+            src="./logoV2.svg"
             alt="Pixel art maker logo"
             className="w-20 h-20"
           />
