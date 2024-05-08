@@ -40,7 +40,7 @@ export default function ChangeName() {
         return;
       }
 
-      const res = await fetch(import.meta.env.VITE_NEWNAMEDRAFT_ENDPOINT_URL, {
+      const res = await fetch(import.meta.env.VITE_NEWNAMEDRAFT_URL, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

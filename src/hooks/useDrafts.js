@@ -7,7 +7,7 @@ function useDrafts({ userId }) {
     const fetchDrafts = async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_GETDRAFTS_ENDPOINT_URL}${userId}`
+          `${import.meta.env.VITE_GETDRAFTS_URL}${userId}`
         );
 
         if (res.ok) {

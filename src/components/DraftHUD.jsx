@@ -15,7 +15,7 @@ const DraftHUD = ({
 }) => {
   const handleSaveChanges = async () => {
     const res = await fetch(
-      `${import.meta.env.VITE_SAVEDRAFT_ENDPOINT_URL}`,
+      `${import.meta.env.VITE_SAVEDRAFT_URL}`,
       {
         method: "PUT",
         headers: {

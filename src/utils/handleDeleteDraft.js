@@ -3,7 +3,7 @@ import { toast } from "sonner";
 function handleDeleteDraft({ userId, draftId, navigate }) {
   const deleteDraft = async () => {
     try {
-      const res = await fetch(import.meta.env.VITE_DELETEDRAFT_ENDPOINT_URL, {
+      const res = await fetch(import.meta.env.VITE_DELETEDRAFT_URL, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

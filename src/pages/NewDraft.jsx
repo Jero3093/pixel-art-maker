@@ -44,7 +44,7 @@ export default function NewDraft() {
         return;
       }
 
-      const res = await fetch(import.meta.env.VITE_CREATEDRAFTS_ENDPOINT_URL, {
+      const res = await fetch(import.meta.env.VITE_CREATEDRAFTS_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -8,7 +8,7 @@ function useSubscriptionPlans() {
     const fetchSubsPlans = async () => {
       try {
         const res = await fetch(
-          import.meta.env.VITE_GETSUBSCRIPTIONS_ENDPOINT_URL
+          import.meta.env.VITE_GETSUBSCRIPTIONS_URL
         );
 
         if (res.ok) {

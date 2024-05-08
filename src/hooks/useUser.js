@@ -9,7 +9,7 @@ function useUser({ _id }) {
       try {
         if (_id) {
           const res = await fetch(
-            `${import.meta.env.VITE_GETUSER_ENDPOINT_URL}${_id}`
+            `${import.meta.env.VITE_GETUSER_URL}${_id}`
           );
 
           if (res.ok) {

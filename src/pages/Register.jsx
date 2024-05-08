@@ -34,7 +34,7 @@ export default function Register() {
         return;
       }
 
-      const res = await fetch(import.meta.env.VITE_SIGNUP_ENDPOINT_URL, {
+      const res = await fetch(import.meta.env.VITE_SIGNUP_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

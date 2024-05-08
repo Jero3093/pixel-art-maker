@@ -33,7 +33,7 @@ export default function Login() {
         return;
       }
 
-      const res = await fetch(import.meta.env.VITE_SIGNIN_ENDPOINT_URL, {
+      const res = await fetch(import.meta.env.VITE_SIGNIN_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
